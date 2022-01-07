@@ -12,7 +12,7 @@ class AddressBook {
     this.emailId = emailId;
 }
 
-    //  UC2 : Regex Pattern
+//  UC2 : Regex Pattern
 
 get firstname() { return this._firstname; }
 set firstname(firstname) {
@@ -73,7 +73,7 @@ set phoneNumber(phoneNumber) {
 
 get emailId() { return this._emailId; }
 set emailId(emailId) {
-    let pattern8 = RegExp('^[A-Z a-z 0-9]+([._+-][0-9 a-z A-Z]+)@[0-9 a-z A-Z]+.[a-z A-Z]{2,3}([.][a-z A-Z]{2})$');
+    let pattern8 = RegExp('^[0-9a-zA-Z+-._]+@[-+_.0-9a-zA-Z]*.[a-zA-Z]{2,3}.([a-zA-z]{2,3})$');
     if (pattern8.test(emailId))
         this._emailId = emailId;
     else console.log('EmailId is Incorrect!');
@@ -87,24 +87,35 @@ toString() {
 
 }
 
-let Book = new AddressBook("Jyotirmaya","Majhi","AshokNagar","Ranchi","Jharkhand","834002","+91 7438830098","jyotirmayamajhi1998@gmail.com");
-console.log(Book.toString());
+// let Book = new AddressBook("Jyotirmaya","Majhi","Argora","Ranchi","Jharkhand","834002","+91 7438830098","jyotirmayamajhi1998@gmail.com");
+// console.log(Book.toString());
 
- // UC3: New Address Book array and add new Contacts to 
+//  // UC3: New Address Book array and add new Contacts to 
 
- let NewAddressBook = new Array();
- NewAddressBook.push(Book)
+//  let NewAddressBook = new Array();
+//  NewAddressBook.push(Book)
 
- const addressBook1 = new AddressBook("Ten","Duk","Shimla","Himachal","Himachalpradesh","422101","+91 7387557696","ten@gmail.com");
- NewAddressBook.push(addressBook1);
+//  const addressBook1 = new AddressBook("Ten","Duk","Shimla","Himachal","Himachalpradesh","422101","+91 7387557696","ten@gmail.com");
+//  NewAddressBook.push(addressBook1);
 
- const addressBook2 = new AddressBook("Aman","Raj","Newarea","Dehri","Bihar","821305","+91 7759953073","amanraj1906@gmail.com");
- NewAddressBook.push(addressBook2);
+//  const addressBook2 = new AddressBook("Aman","Raj","Newarea","Dehri","Bihar","821305","+91 7759953073","amanraj1906@gmail.com");
+//  NewAddressBook.push(addressBook2);
 
- const addressBook3 = new AddressBook("Jyotirmaya","Majhi","Ashoknagar","Ranchi","Jharkhand","834002","+91 7438830098","jyotirmayamajhi1998@gmail.com");
- NewAddressBook.push(addressBook3);
+//  const addressBook3 = new AddressBook("Jyotirmaya","Majhi","Argora","Ranchi","Jharkhand","834002","+91 7438830098","abc+100@gmail.com");
+//  NewAddressBook.push(addressBook3);
 
- for (let i = 0; i < NewAddressBook.length; i++) {
-     const element = NewAddressBook[i];
-    console.log(element.toString()); 
- }
+//  for (let i = 0; i < NewAddressBook.length; i++) {
+//      const element = NewAddressBook[i];
+//     console.log(element.toString()); 
+//  }
+let personContact1 = new AddressBook("Jyotirmaya", "Majhi", "Argora", "Ranchi", "Jharkhand", "834001", "+91 7438830098", "jyotirmayamajhi1998@gmail.com");
+let addressBookArray = new Array();
+addressBookArray.push(personContact1);
+addressBookArray[1] = new AddressBook("Rajesh", "Gawali", "Bhusaval", "Bhusaval", "Maharashtra", "856421", "+91 9431295849", "rajheshgawali789@gmail.com");
+console.log(addressBookArray);
+
+let index = addressBookArray.findIndex((obj => obj._firstname == "Rajesh"));
+console.log("Before Update : " + addressBookArray[index]);
+addressBookArray[index].city = "Lokhandwala";
+console.log("After Update : " + addressBookArray[index]);
+ 
