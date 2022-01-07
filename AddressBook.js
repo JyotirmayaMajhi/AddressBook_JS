@@ -118,4 +118,8 @@ let index = addressBookArray.findIndex((obj => obj._firstname == "Rajesh"));
 console.log("Before Update : " + addressBookArray[index]);
 addressBookArray[index].city = "Lokhandwala";
 console.log("After Update : " + addressBookArray[index]);
- 
+
+index = addressBookArray.findIndex((obj => obj.firstName == "Rajesh"));
+addressBookArray.pop(index);
+console.log("After Deletion");
+console.log(addressBookArray);
